@@ -5,9 +5,11 @@ from django.shortcuts import render
 from .models import meals
 
 def meal_list(request):
-    meal_list = Meals.objects.all()
+    meal_list = meals.objects.all()
     context = {'meal_list' : meal_list,}
     return render(request, 'meals/list.html', context)
 
 def meal_detail(request, slug):
-    pass
+    meal_detail = meals.object.get(slug=slug)
+    context = {'meal_detail' : meal_detail}
+    return render(request, 'meals/detail.html')
